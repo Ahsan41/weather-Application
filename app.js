@@ -28,7 +28,7 @@ async function checkWeather(city){
     document.querySelector(".weather").style.display = "none"
     document.querySelector(".details").style.display = "none"
     document.querySelector(".error").innerHTML = `<p>City Not Found</p>`
-
+   return (err)
    }
 }
 
@@ -36,19 +36,19 @@ async function checkWeather(city){
 searchBtn.addEventListener(`click`, ()=>{
     checkWeather(searchBox.value)  
     .then((res) => { 
-    if(data.weather[0].main == "Clouds"){
+    if(res == "Clouds"){
         weatherIcon.src = "img/clouds.png";
     }
-    else if (data.weather[0].main == "Clear"){
+    else if (res == "Clear"){
         weatherIcon.src = "img/clear.png";
     }
-    else if (data.weather[0].main == "Rain"){
+    else if (res == "Rain"){
         weatherIcon.src = "img/rain.png";
     }
-    else if (data.weather[0].main == "Mist"){
+    else if (res == "Mist"){
         weatherIcon.src = "img/mist.png";
     }
-    else if (data.weather[0].main == "Drizzle"){
+    else if ( res == "Drizzle"){
         weatherIcon.src = "img/drizzle.png";
     }
 })
